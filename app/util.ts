@@ -20,3 +20,19 @@ export function shuffle<T>(ary: T[]) {
 	}
 	return shuffledArray;
 }
+
+export function* iterBubbleSort(ary: number[]) {
+	const cloned = structuredClone(ary);
+	for (let i = 0; i < ary.length; i++) {
+		for (let j = 0; j < ary.length - i; j++) {
+			const val1 = cloned[j];
+			const val2 = cloned[j + 1];
+			if (val1 > val2) {
+				cloned[j] = val2;
+				cloned[j + 1] = val1;
+				yield cloned;
+			}
+		}
+	}
+	return cloned;
+}

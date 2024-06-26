@@ -1,4 +1,4 @@
-import { randInt, shuffle } from "../app/uti"
+import { iterBubbleSort, randInt, shuffle } from "../app/util"
 
 test("1 + 1 = 2", () => {
   expect(1 + 1).toBe(2)
@@ -17,8 +17,26 @@ describe("randInt", () => {
 
 describe("shuffle", () => {
   test("掻き回せる", () => {
-    const ary = [1, 2, 3, 4, 5,6,7,8,9,10,11,12,13,14,15];
+    const ary = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
     const shuffled = shuffle(ary)
     expect(shuffled).containSubset(ary)
+  })
+})
+
+describe("iterBubbleSort", () => {
+  test("ソート", () => {
+    const ary = [4, 3, 6, 1]
+    const expected = [1, 3, 4, 6]
+    const gen = iterBubbleSort(ary)
+    let result: number[] = []
+    while (true) {
+      const { done, value } = gen.next()
+      if (done) {
+        result = value
+        break
+      }
+    }
+
+    expect(result).toEqual(expected)
   })
 })

@@ -39,4 +39,18 @@ describe("iterBubbleSort", () => {
 
     expect(result).toEqual(expected)
   })
+  test("途中結果もチェック", () => {
+    const ary = [4, 3, 6, 1]
+    const expected = [[3,4,6,1],[3,4,1,6],[3,1,4,6],[1,3,4,6]];
+    const gen = iterBubbleSort(ary)
+    let result:number[] = [];
+    result  = gen.next().value
+    expect(result).toEqual(expected[0])
+    result  = gen.next().value
+    expect(result).toEqual(expected[1])
+    result  = gen.next().value
+    expect(result).toEqual(expected[2])
+    result  = gen.next().value
+    expect(result).toEqual(expected[3])
+  })
 })

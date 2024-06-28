@@ -1,8 +1,12 @@
 import { RemixBrowser } from "@remix-run/react";
 import { StrictMode, startTransition } from "react";
+// biome-ignore lint/correctness/noUnusedImports: <explanation>
+import React from "react";
 import { hydrateRoot } from "react-dom/client";
 const app = document.querySelector("#app");
-if (!app) throw new Error("#app not found.");
+if (!app) {
+	throw new Error("#app not found.");
+}
 startTransition(() => {
 	hydrateRoot(
 		app,

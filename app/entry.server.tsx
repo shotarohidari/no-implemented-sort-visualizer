@@ -3,6 +3,8 @@ import path from "node:path";
 
 import type { EntryContext } from "@remix-run/node";
 import { RemixServer } from "@remix-run/react";
+// biome-ignore lint/correctness/noUnusedImports: <explanation>
+import React from "react";
 import { renderToString } from "react-dom/server";
 
 export default function handleRequest(
